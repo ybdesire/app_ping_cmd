@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ping</string>
+    <string name="btn_ping_click">Ping</string>
 </resources>
