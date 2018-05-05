@@ -22,20 +22,37 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader ie = new BufferedReader(new InputStreamReader(p.getErrorStream()));
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String error = "";
+            int timeOut = p.waitFor();
+            if(timeOut==1){
+                return "Request time out\n";
+            }
+
             while ((error = ie.readLine()) != null
                     && !error.equals("null")) {
                 data += error + "\n";
             }
+
+
             String line = null;
             while ((line = in.readLine()) != null
                     && !line.equals("null")) {
                 data += line + "\n";
             }
 
-            Log.v("ls", data);
+            int startIndex = data.indexOf("\n");
+            int endIndex = data.indexOf("---");
+
+            if(endIndex>startIndex)
+            {
+                data = data.substring(startIndex+1,endIndex);
+            }
+            Log.v("ping_cmd", data);
             return data;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return "IOException\n";
+        }
+        catch (InterruptedException e){
+            return "InterruptedException\n";
         }
 
     }
