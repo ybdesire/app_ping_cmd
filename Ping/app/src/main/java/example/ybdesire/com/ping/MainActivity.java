@@ -2,6 +2,7 @@ package example.ybdesire.com.ping;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,10 +68,15 @@ public class MainActivity extends AppCompatActivity {
         Button btn=findViewById(R.id.button_ping_click);//find button by id(defined at activity_main.xml)
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView txt=findViewById(R.id.txt_ip_label);//find output label by id
+                TextView txt=findViewById(R.id.txt_output);//find output label by id
+                txt.setMovementMethod(new ScrollingMovementMethod());//enable text view
                 String s = exeCmd("127.0.0.1");
-                Log.e("executeTop", s);
-                txt.setText(s);
+                txt.append(s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+"\nend");
+                //scrolling to end
+                while (txt.canScrollVertically(1)) {
+                    txt.scrollBy(0, 10);
+                }
+
             }
         });
 
