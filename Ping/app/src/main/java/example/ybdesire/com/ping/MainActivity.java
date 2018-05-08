@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    // 点击其它view，就收起软键盘
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        DisplayUtils.hideInputWhenTouchOtherView(this, ev, getExcludeTouchHideInputViews());
+        return super.dispatchTouchEvent(ev);
+    }
+    public List<View> getExcludeTouchHideInputViews(){
+        List<View> excludeViews = new ArrayList<View>();
+        return excludeViews;//return blank list: 说明click所有地方都收起键盘
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
