@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -82,13 +83,18 @@ public class MainActivity extends AppCompatActivity {
         Button btn=findViewById(R.id.button_ping_click);//find button by id(defined at activity_main.xml)
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView txt=findViewById(R.id.txt_output);//find output label by id
-                txt.setMovementMethod(new ScrollingMovementMethod());//enable text view
-                String s = exeCmd("127.0.0.1");
-                txt.append(s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+"\nend");
+                TextView txtOut=findViewById(R.id.txt_output);//find output label by id
+                txtOut.setMovementMethod(new ScrollingMovementMethod());//enable text view
+                txtOut.setText("");//clear display output message
+
+                EditText txtInput = findViewById(R.id.plain_text_input);
+                String ipOrUrl = txtInput.getText().toString();
+
+                String s = exeCmd(ipOrUrl);
+                txtOut.setText(s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+"\nend");
                 //scrolling to end
-                while (txt.canScrollVertically(1)) {
-                    txt.scrollBy(0, 10);
+                while (txtOut.canScrollVertically(1)) {
+                    txtOut.scrollBy(0, 10);
                 }
 
             }
