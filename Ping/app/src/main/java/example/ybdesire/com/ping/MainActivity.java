@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText txtInput = findViewById(R.id.plain_text_input);
+        txtInput.setText("127.0.0.1");
+
         // Button click listener
         Button btn=findViewById(R.id.button_ping_click);//find button by id(defined at activity_main.xml)
         btn.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 String ipOrUrl = txtInput.getText().toString();
 
                 String s = exeCmd(ipOrUrl);
-                txtOut.setText(s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+s+"\nend");
+                txtOut.setText(s+"\n");
                 //scrolling to end
                 while (txtOut.canScrollVertically(1)) {
                     txtOut.scrollBy(0, 10);

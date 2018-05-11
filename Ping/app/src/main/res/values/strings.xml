@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Ping</string>
-    <string name="btn_ping_click">Start</string>
+    <string name="btn_ping_click">Send one message</string>
     <string name="label_host">Host</string>
+    <string name="output_init">output</string>
+
 </resources>

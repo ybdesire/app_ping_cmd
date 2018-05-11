@@ -51,7 +51,7 @@
         android:layout_alignParentRight="true"
         android:maxLines="100"
         android:scrollbars="vertical"
-        android:text="output"
+        android:text="@string/output_init"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintLeft_toLeftOf="parent"
