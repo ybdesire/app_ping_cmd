@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context="example.ybdesire.com.ping.MainActivity">
 
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="325dp"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8100413825150401/6303797206"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+    </com.google.android.gms.ads.AdView>
+
     <TextView
         android:id="@+id/txt_ip"
         android:layout_width="64dp"
