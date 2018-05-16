@@ -1,6 +1,9 @@
 # app_ping_cmd
 Android APP for Linux CMD ping demo.
 
+Published to Google Play [here](https://play.google.com/store/apps/details?id=example.ybdesire.com.ping).
+
+
 # Description 
 
 Ping IP or URL(website).
@@ -22,3 +25,4 @@ Ping IP or URL(website).
 # Screenshot
 
 
+![alt tag](screenshot.png)
